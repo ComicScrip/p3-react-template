@@ -1,6 +1,6 @@
 # Setup
 
-## Environement
+## Environment
 
 Copy the sample `.env` file :
 
