@@ -3,12 +3,14 @@
 ## Environement
 
 Copy the sample `.env` file :
+
 ```sh
 cp .env.sample .env
 ```
+
 And adjust variables to match your own environment if needed.
 
-## Install dependencies 
+## Install dependencies
 
 ```sh
 npm i
