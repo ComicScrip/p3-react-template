@@ -1,3 +1,19 @@
+# Setup
+
+## Environement
+
+Copy the sample `.env` file :
+```sh
+cp .env.sample .env
+```
+And adjust variables to match your own environment if needed.
+
+## Install dependencies 
+
+```sh
+npm i
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
