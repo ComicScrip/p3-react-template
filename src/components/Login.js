@@ -24,12 +24,7 @@ export default function Login() {
           name="email"
           type="email"
         />
-        <input
-          value="2TYVTYUF11@@%yuftrdesszejhvgez"
-          ref={register}
-          name="password"
-          type="password"
-        />
+        <input ref={register} name="password" type="password" />
         <input type="submit" />
       </form>
       <button type="button" onClick={logout}>
