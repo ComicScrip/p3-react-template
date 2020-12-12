@@ -9,6 +9,8 @@ Promise.config({
 
 // If our API is deployed somewhere else, we just have to change the
 // REACT_APP_API_BASE_URL variable in .env file at the root of the project
+
+console.log('api url :', process.env.REACT_APP_API_BASE_URL);
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
   withCredentials: true,
