@@ -9,7 +9,7 @@ export default function ContactList() {
   return (
     <div className="App">
       {contacts.map((c) => (
-        <p>{c.name}</p>
+        <p key={c.id}>{c.name}</p>
       ))}
     </div>
   );

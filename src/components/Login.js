@@ -5,14 +5,12 @@ export default function Login() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
-    const res = await API.post('auth/login', data);
-    console.log(res);
-  };
-
-  const logout = async () => {
-    const res = await API.get('auth/logout');
-    console.log(res);
+    try {
+      await API.post('auth/login', data);
+      console.log('logged in successfully');
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -22,9 +20,6 @@ export default function Login() {
         <input ref={register} name="password" type="password" />
         <input type="submit" />
       </form>
-      <button type="button" onClick={logout}>
-        Logout
-      </button>
     </>
   );
 }
