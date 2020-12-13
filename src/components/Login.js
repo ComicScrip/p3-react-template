@@ -18,12 +18,7 @@ export default function Login() {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          value="john.doe@gmail.com"
-          ref={register}
-          name="email"
-          type="email"
-        />
+        <input ref={register} name="email" type="email" />
         <input ref={register} name="password" type="password" />
         <input type="submit" />
       </form>
