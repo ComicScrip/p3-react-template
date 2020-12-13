@@ -52,8 +52,18 @@ export default function Login() {
             ref={register}
             name="password"
             type="password"
+            id="password"
             autoComplete="current-password"
           />
+        </label>
+        <label htmlFor="stayConnected">
+          <input
+            ref={register}
+            name="stayConnected"
+            id="stayConnected"
+            type="checkbox"
+          />
+          Stay connected ?
         </label>
         <input type="submit" value="Log in" />
       </form>
