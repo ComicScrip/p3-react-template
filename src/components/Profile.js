@@ -1,10 +1,12 @@
 import { useQuery } from 'react-query';
 import { useHistory } from 'react-router';
 import { useToasts } from 'react-toast-notifications';
-import API, { getCollection } from '../services/API';
+import API from '../services/API';
 
 export default function Profile() {
-  const { data: profile } = useQuery('me', getCollection);
+  const { data: profile } = useQuery('me', () =>
+    API.get('/me').then((res) => res.data)
+  );
   const history = useHistory();
   const { addToast } = useToasts();
 
