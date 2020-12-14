@@ -17,6 +17,7 @@ export default function Login() {
         appearance: 'success',
         autoDismiss: true,
       });
+      console.log(redirectPath);
       if (redirectPath) {
         history.push(redirectPath);
       }
