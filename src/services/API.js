@@ -1,7 +1,7 @@
 import axios, { CancelToken } from 'axios';
 import queryString from 'query-string';
-
 import * as Promise from 'bluebird';
+import browserHistory from '../history';
 
 Promise.config({
   cancellation: true,
@@ -9,8 +9,10 @@ Promise.config({
 
 // If our API is deployed somewhere else, we just have to change the
 // REACT_APP_API_BASE_URL variable in .env file at the root of the project
+
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
+  withCredentials: true,
 });
 
 const makeCancellable = (method, url, data, config) => {
@@ -71,5 +73,21 @@ export const makeEntityUpdater = (collectionName) => (id, attributes) =>
   makeCancellable('patch', `/${collectionName}/${id}`, attributes).then(
     extractData
   );
+
+instance.interceptors.response.use(
+  (res) => res,
+  (err) => {
+    // eslint-disable-next-line
+    console.log('Error while requesting the API : ', err.response);
+    if (
+      err.response &&
+      err.response.status === 401 &&
+      window.location.pathname !== '/login'
+    ) {
+      browserHistory.push(`/login?redirectPath=${window.location.pathname}`);
+    }
+    return Promise.reject(err);
+  }
+);
 
 export default instance;
