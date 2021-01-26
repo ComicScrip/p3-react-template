@@ -26,6 +26,14 @@ export default function Login() {
     }
   };
 
+  const handleFacebookLogin = () => {
+    window.location.href = `${process.env.REACT_APP_API_BASE_URL}/auth/facebook`;
+  };
+
+  const handleGoogleLogin = () => {
+    window.location.href = `${process.env.REACT_APP_API_BASE_URL}/auth/google`;
+  };
+
   return (
     <>
       <h1>Login Page</h1>
@@ -68,6 +76,13 @@ export default function Login() {
         </label>
         <input type="submit" value="Log in" />
       </form>
+
+      <button type="button" onClick={handleFacebookLogin}>
+        Login with facebook
+      </button>
+      <button type="button" onClick={handleGoogleLogin}>
+        Login with google
+      </button>
     </>
   );
 }
