@@ -7,7 +7,7 @@ export default function ContactList() {
   const { data: contacts } = useQuery('contacts', () => {
     return getCollection('contacts');
   });
-
+  if (!contacts) return 'loading...';
   return (
     <div className="contacts">
       <ul>
